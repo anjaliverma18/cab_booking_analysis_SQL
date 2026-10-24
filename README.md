@@ -28,7 +28,7 @@ Aggregate Functions
    from bookings b  
    group by pickuploaction, droplocation  
    order by total_trips desc limit 3;  
-   ![top three travelled routes](screenshots/
+   ![top three travelled routes](screenshots/travelled_route.png)  
 
 #### 3. Drivers with average rating below 3.0  
 select d.driverid, d.name, round(avg(f.rating),2) as avgrating  
@@ -39,6 +39,7 @@ join feedback f on b.bookingID=f.bookingID
 where f.rating is not null  
 group by d.driverid, d.name  
 having avgrating<3;  
+![driver average rating below 3.0](screenshots/driver.png)
 
 #### 4. Top drivers completed longest trips  
 select d.driverid, d.name, round(sum(tripdetails.distanceKM),2) as totaldistance  
@@ -50,7 +51,7 @@ where b.status="completed"
 group by d.driverid, d.name  
 order by totaldistance desc  
 limit 5;  
-
+![drivers completed longest trips](screenshots/longest_trip.png)  
 
 ## Tools Used
 -MySQL  
